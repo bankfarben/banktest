@@ -1,1 +1,24 @@
-ok let's go
+import unittest
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+class TestCase(unittest.TestCase):
+    def test_01_login(self):
+        ##登录
+        
+        global driver
+        driver = webdriver.Chrome()
+        driver.get("https://www.saucedemo.com/")
+        driver.find_element(By.XPATH,"//input[@id='user-name']").send_keys("standard_user");
+        driver.find_element(By.XPATH,"//input[@id='password']").send_keys("secret_sauce");
+        driver.find_element(By.XPATH,"//input[@type='submit']").click();
+        driver.maximize_window();
+
+
+    # def test_02_login(self):
+    #     driver = webdriver.Chrome()
+    #     driver.get("https://www.hao123.com")
+
+if __name__ == '__main__':
+    unittest.main()
